@@ -6,16 +6,25 @@ import { RegisterPage } from "../../pages/RegisterPage";
 import { MyAdvertsPage } from "../../pages/MyAdvertsPage";
 import { ProfilePage } from "../../pages/ProfilePage";
 import { NotFoundPage } from "../../pages/NotFoundPage";
+import { PublicRoutes } from "../PublicRoutes";
+import { PrivateRoutes } from "../PrivateRoutes";
 
 export function Router() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/anuncio/:id" element={<SingleAdvertPage />} />
-      <Route path="/cadastro" element={<RegisterPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/meus-anuncios" element={<MyAdvertsPage />} />
-      <Route path="/meu-perfil" element={<ProfilePage />} />
+
+      <Route element={<PublicRoutes />}>
+        <Route path="/cadastro" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Route>
+
+      <Route element={<PrivateRoutes />}>
+        <Route path="/meus-anuncios" element={<MyAdvertsPage />} />
+        <Route path="/meu-perfil" element={<ProfilePage />} />
+      </Route>
+
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
