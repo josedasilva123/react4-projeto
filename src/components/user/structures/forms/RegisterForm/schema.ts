@@ -15,3 +15,5 @@ export const schema = z.object({
     message: "As senhas não correspondem",
     path: ["confirmPassword"]
 });
+
+export type TFormValues = z.infer<typeof schema>;
