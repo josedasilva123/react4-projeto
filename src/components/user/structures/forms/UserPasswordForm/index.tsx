@@ -5,11 +5,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, TFormValues } from "./schema";
 import { useUser } from "../../../../../stores/user/useUser";
+import { useNavigate } from "react-router-dom";
 
 export function UserPasswordForm() {
   const [loading, setLoading] = useState(false);
 
   const updatePassword = useUser((store) => store.updatePassword);
+  const logout = useUser((store) => store.logout);
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,7 +24,10 @@ export function UserPasswordForm() {
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
-    updatePassword(formData, setLoading);
+    updatePassword(formData, setLoading, () => {
+      logout();
+      navigate("/login");
+    });
   };
 
   return (
