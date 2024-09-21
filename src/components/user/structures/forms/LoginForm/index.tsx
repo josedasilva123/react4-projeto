@@ -1,16 +1,16 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { schema, TFormValues } from "./schema";
+import { useState } from "react";
+import { Button } from "../../../../shared/fragments/buttons/Button";
 import { Input } from "../../../../shared/fragments/fields/Input";
 import { InputPassword } from "../../../../shared/fragments/fields/InputPassword";
-import { Button } from "../../../../shared/fragments/buttons/Button";
-import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "../../../../../stores/user/useUser";
 
-export function RegisterForm() {
+export function LoginForm() {
   const [loading, setLoading] = useState(false);
 
-  const registerUser = useUser((store) => store.register);
+  const login = useUser(store => store.login);
 
   const {
     register,
@@ -21,21 +21,12 @@ export function RegisterForm() {
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
-    registerUser(formData, setLoading);
-  };
+    login(formData, setLoading);
+  }
 
   return (
     <form onSubmit={handleSubmit(submit)}>
       <Input
-        type="text"
-        label="Nome"
-        {...register("name")}
-        disabled={loading}
-        error={errors.name}
-      />
-      
-      <Input
-        type="email"
         label="Email"
         {...register("email")}
         disabled={loading}
@@ -49,23 +40,8 @@ export function RegisterForm() {
         error={errors.password}
       />
 
-      <InputPassword
-        label="Confirmar senha"
-        {...register("confirmPassword")}
-        disabled={loading}
-        error={errors.confirmPassword}
-      />
-
-      <Input
-        type="text"
-        label="Whatsapp"
-        {...register("whatsapp")}
-        disabled={loading}
-        error={errors.whatsapp}
-      />
-
       <Button type="submit" disabled={loading}>
-        {loading ? "Cadastrando..." : "Cadastrar-se"}
+        {loading ? "Entrando..." : "Entrar"}
       </Button>
     </form>
   );
