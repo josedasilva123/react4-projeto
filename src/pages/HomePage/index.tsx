@@ -2,6 +2,7 @@ import { useUser } from "../../stores/user/useUser"
 
 export function HomePage(){
     const user = useUser(store => store.user);
+    
     console.log(user);
 
     return(

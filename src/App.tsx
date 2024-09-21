@@ -1,11 +1,14 @@
-import { Router } from "./routes/Router"
+import { ProfileLoader } from "./components/user/loaders/ProfileLoader";
+import { Router } from "./routes/Router";
 
 function App() {
   return (
     <>
-      <Router />
+      <ProfileLoader>
+        <Router />
+      </ProfileLoader>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
