@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useUser } from "../../../../stores/user/useUser";
 
@@ -12,7 +11,7 @@ export function ProfileLoader({ children }: Props) {
 
   useEffect(() => {
     profile();
-  }, []);
+  }, [profile]);
 
   return loading ? <p>Carregando...</p> : <>{children}</>;
 }
