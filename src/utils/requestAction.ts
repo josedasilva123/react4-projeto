@@ -21,8 +21,10 @@ export async function requestAction({
   try {
     if (setLoading) setLoading(true);
     if (onInit) onInit();
+
     const token = localStorage.getItem(LocalStorageKeys.TOKEN);
     await action(token);
+    
     if (onSuccess) onSuccess();
   } catch (error) {
     console.log(error);
