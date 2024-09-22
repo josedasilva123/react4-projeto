@@ -25,7 +25,7 @@ interface Store {
     advertId: string | number,
     setLoading: Dispatch<SetStateAction<boolean>>,
     callback?: () => void
-  )
+  ) => Promise<void>;
 }
 
 export const useUserAdvert = create<Store>((set) => ({
