@@ -2,54 +2,48 @@ import { create } from "zustand";
 import { userRequest } from "../../data/user/_index";
 import { LocalStorageKeys } from "../../enum/LocalStorageKeys.enum";
 import { Store } from "./@types";
+import { requestAction } from "../../utils/requestAction";
 
 export const useUser = create<Store>((set) => ({
   user: null,
   loading: false,
 
   profile: async (callback) => {
-    const token = localStorage.getItem(LocalStorageKeys.TOKEN);
-
-    if (token) {
-      try {
-        set({ loading: true });
-        const data = await userRequest.profile(token);
-        set({ user: data });
-        if(callback) callback();
-      } catch (error) {
-        console.log(error);
-        localStorage.removeItem(LocalStorageKeys.TOKEN);
-      } finally {
-        set({ loading: false });
-      }
-    }
+    requestAction({
+      action: async (token) => {
+        if(token){
+          const data = await userRequest.profile(token);
+          set({ user: data });
+        }
+      },
+      onSuccess: callback,
+      onError: () => localStorage.removeItem(LocalStorageKeys.TOKEN),
+      onInit: () => set({ loading: true }),
+      onEnd: () => set({ loading: false })
+    });
   },
 
   register: async (formData, setLoading, callback) => {
-    try {
-      setLoading(true);
-      await userRequest.register(formData);
-      console.log("Usuário cadastro com sucesso!");
-      if (callback) callback();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+    requestAction({
+      setLoading,
+      action: async () => {
+        await userRequest.register(formData);
+        console.log("Usuário cadastro com sucesso!");
+      },
+      onSuccess: callback,
+    });
   },
 
   login: async (formData, setLoading, callback) => {
-    try {
-      setLoading(true);
-      const data = await userRequest.login(formData);
-      set({ user: data.user });
-      localStorage.setItem(LocalStorageKeys.TOKEN, data.accessToken);
-      if (callback) callback();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+    requestAction({
+      setLoading,
+      action: async () => {
+        const data = await userRequest.login(formData);
+        set({ user: data.user });
+        localStorage.setItem(LocalStorageKeys.TOKEN, data.accessToken);
+      },
+      onSuccess: callback,
+    });
   },
 
   logout: () => {
@@ -58,16 +52,13 @@ export const useUser = create<Store>((set) => ({
   },
 
   updatePassword: async (formData, setLoading, callback) => {
-    try {
-        setLoading(true);
-        const token = localStorage.getItem(LocalStorageKeys.TOKEN);
+    requestAction({
+      setLoading,
+      action: async (token) => {
         await userRequest.updatePassword(formData, token as string);
         console.log("Atualização de senha efetuada com sucesso.");
-        if(callback) callback();
-    } catch (error) {
-        console.log(error);
-    } finally {
-        setLoading(false);
-    }
-  }
+      },
+      onSuccess: callback
+    })
+  },
 }));
