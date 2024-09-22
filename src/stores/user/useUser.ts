@@ -18,6 +18,7 @@ export const useUser = create<Store>((set) => ({
         if(callback) callback();
       } catch (error) {
         console.log(error);
+        localStorage.removeItem(LocalStorageKeys.TOKEN);
       } finally {
         set({ loading: false });
       }
