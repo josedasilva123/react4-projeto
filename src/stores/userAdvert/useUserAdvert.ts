@@ -12,6 +12,12 @@ export const useUserAdvert = create<Store>((set) => ({
     set({ editingAdvert: value })
   },
 
+  removingAdvert: null,
+
+  setRemovingAdvert: (value) => {
+    set({ removingAdvert: value })
+  },
+
   createAdvert: async (formData, setLoading, callback) => {
     requestAction({
       setLoading,

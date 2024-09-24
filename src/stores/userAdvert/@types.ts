@@ -8,6 +8,8 @@ export interface Store {
   loading: boolean;
   editingAdvert: IAdvert | null;
   setEditingAdvert: (value: IAdvert | null) => void;
+  removingAdvert: IAdvert | null;
+  setRemovingAdvert: (value: IAdvert | null) => void;
   createAdvert: (
     formData: TAdvertCreateData,
     setLoading: Dispatch<SetStateAction<boolean>>,

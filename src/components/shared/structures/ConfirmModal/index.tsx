@@ -1,6 +1,8 @@
+import { Button } from "../../fragments/buttons/Button";
 import { Modal } from "../Modal";
 
 interface Props {
+  loading?: boolean;
   title?: string;
   text?: string;
   onConfirm: () => void;
@@ -9,6 +11,7 @@ interface Props {
 }
 
 export function ConfirmModal({
+  loading,
   title,
   text,
   onConfirm,
@@ -20,8 +23,12 @@ export function ConfirmModal({
       {title ? <h2>{title}</h2> : null}
       {text ? <p>{text}</p> : null}
       <div>
-        <button onClick={onConfirm}>Sim</button>
-        <button onClick={onCancel}>Não</button>
+        <Button onClick={onConfirm} disabled={loading}>
+          {loading ? "..." : "Sim"}
+        </Button>
+        <Button onClick={onCancel} disabled={loading}>
+          Não
+        </Button>
       </div>
     </Modal>
   );
