@@ -7,10 +7,11 @@ import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
 
-export function CreateAdvertForm() {
+export function EditAdvertForm() {
   const [loading, setLoading] = useState(false);
 
-  const createAdvert = useUserAdvert((store) => store.createAdvert);
+  const editingAdvert = useUserAdvert((store) => store.editingAdvert);
+  const updateAdvert = useUserAdvert((store) => store.updateAdvert);
 
   const {
     register,
@@ -18,6 +19,13 @@ export function CreateAdvertForm() {
     formState: { errors },
   } = useForm<TFormValues>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      title: editingAdvert?.title,
+      image: editingAdvert?.image ? editingAdvert.image : "",
+      price: String(editingAdvert?.price),
+      excerpt: editingAdvert?.excerpt,
+      content: editingAdvert?.content,
+    },
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
@@ -25,7 +33,7 @@ export function CreateAdvertForm() {
       ...formData,
       price: Number(formData.price),
     };
-    createAdvert(data, setLoading);
+    updateAdvert(data, editingAdvert!.id, setLoading);
   };
 
   return (

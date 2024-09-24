@@ -6,6 +6,7 @@ import { IAdvert } from "../../interfaces/advert.interface";
 export interface Store {
   advertList: IAdvert[];
   loading: boolean;
+  editingAdvert: IAdvert | null;
   createAdvert: (
     formData: TAdvertCreateData,
     setLoading: Dispatch<SetStateAction<boolean>>,

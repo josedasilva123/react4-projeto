@@ -6,6 +6,7 @@ import { Store } from "./@types";
 export const useUserAdvert = create<Store>((set) => ({
   advertList: [],
   loading: false,
+  editingAdvert: null,
 
   createAdvert: async (formData, setLoading, callback) => {
     requestAction({
