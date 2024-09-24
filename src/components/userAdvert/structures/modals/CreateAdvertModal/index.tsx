@@ -7,7 +7,7 @@ export function CreateAdvertModal() {
   const [isVisible, setIsVisible] = useState(false);
 
   function onClose(){
-    setIsVisible(false)
+    setIsVisible(false);
   }
 
   return (

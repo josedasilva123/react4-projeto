@@ -7,6 +7,7 @@ export interface Store {
   advertList: IAdvert[];
   loading: boolean;
   editingAdvert: IAdvert | null;
+  setEditingAdvert: (value: IAdvert | null) => void;
   createAdvert: (
     formData: TAdvertCreateData,
     setLoading: Dispatch<SetStateAction<boolean>>,

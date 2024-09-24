@@ -7,7 +7,11 @@ import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
 
-export function EditAdvertForm() {
+interface Props{
+  callback?: () => void;
+}
+
+export function EditAdvertForm({ callback }: Props) {
   const [loading, setLoading] = useState(false);
 
   const editingAdvert = useUserAdvert((store) => store.editingAdvert);
@@ -33,7 +37,7 @@ export function EditAdvertForm() {
       ...formData,
       price: Number(formData.price),
     };
-    updateAdvert(data, editingAdvert!.id, setLoading);
+    updateAdvert(data, editingAdvert!.id, setLoading, callback);
   };
 
   return (

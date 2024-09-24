@@ -8,6 +8,10 @@ export const useUserAdvert = create<Store>((set) => ({
   loading: false,
   editingAdvert: null,
 
+  setEditingAdvert: (value) => {
+    set({ editingAdvert: value })
+  },
+
   createAdvert: async (formData, setLoading, callback) => {
     requestAction({
       setLoading,
