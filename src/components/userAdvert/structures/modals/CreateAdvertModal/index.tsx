@@ -6,7 +6,7 @@ import { CreateAdvertForm } from "../../forms/CreateAdvertForm";
 export function CreateAdvertModal() {
   const [isVisible, setIsVisible] = useState(false);
 
-  function onClose(){
+  function onClose() {
     setIsVisible(false);
   }
 
