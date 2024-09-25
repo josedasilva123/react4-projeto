@@ -9,13 +9,13 @@ export const useUserAdvert = create<Store>((set) => ({
   editingAdvert: null,
 
   setEditingAdvert: (value) => {
-    set({ editingAdvert: value })
+    set({ editingAdvert: value });
   },
 
   removingAdvert: null,
 
   setRemovingAdvert: (value) => {
-    set({ removingAdvert: value })
+    set({ removingAdvert: value });
   },
 
   createAdvert: async (formData, setLoading, callback) => {
@@ -53,7 +53,7 @@ export const useUserAdvert = create<Store>((set) => ({
         set(({ advertList }) => ({
           advertList: advertList.map((advert) => {
             if (advert.id === advertId) {
-              return { ...advert, data };
+              return { ...advert, ...data };
             } else {
               return advert;
             }
@@ -69,6 +69,9 @@ export const useUserAdvert = create<Store>((set) => ({
       setLoading,
       action: async (token) => {
         await advertRequest.remove(advertId, token as string);
+        set(({ advertList }) => ({
+          advertList: advertList.filter((advert) => advert.id !== advertId),
+        }));
       },
       onSuccess: callback,
     });

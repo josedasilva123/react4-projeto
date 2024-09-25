@@ -15,7 +15,7 @@ export function MyAdvertsPage() {
           <h1>Meus anúncios</h1>
           <CreateAdvertModal />
         </div>
-        <div>{loading ? <UserAdvertList /> : <p>Carregando...</p>}</div>
+        <div>{loading ? <p>Carregando...</p> : <UserAdvertList />}</div>
       </section>
       <EditAdvertModal />
       <RemoveAdvertModal />

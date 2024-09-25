@@ -81,7 +81,7 @@ export function EditAdvertForm({ callback }: Props) {
       />
 
       <Button type="submit" disabled={loading}>
-        {loading ? "Criando..." : "Criar anúncio"}
+        {loading ? "Editando..." : "Editar anúncio"}
       </Button>
     </form>
   );
