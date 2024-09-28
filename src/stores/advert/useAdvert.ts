@@ -1,23 +1,7 @@
 import { create } from "zustand";
-import { IAdvert } from "../../interfaces/advert.interface";
 import { requestAction } from "../../utils/requestAction";
 import { advertRequest } from "../../data/advert/_index";
-import { Dispatch, SetStateAction } from "react";
-
-interface Store {
-  loading: boolean;
-  advertList: IAdvert[];
-  total: number;
-  order: "asc" | "desc";
-  search: "";
-  skip: number;
-  getManyAdverts: (search: string, order: "asc" | "desc") => Promise<void>;
-  getNextAdvertPage: (
-    search: string,
-    order: "asc" | "desc",
-    setLoading: Dispatch<SetStateAction<boolean>>
-  ) => Promise<void>;
-}
+import { Store } from "./@types";
 
 const PAGE_COUNT = 5;
 
@@ -26,7 +10,13 @@ export const useAdvert = create<Store>((set, get) => ({
   advertList: [],
   total: 0,
   order: "desc",
+  setOrder: (value) => {
+    set({ order: value });
+  },
   search: "",
+  setSearch: (value) => {
+    set({ search: value });
+  },
   skip: 0,
 
   getManyAdverts: async (search, order) => {
