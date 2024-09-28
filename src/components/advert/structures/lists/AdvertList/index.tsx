@@ -1,6 +1,7 @@
 import { useAdvert } from "../../../../../stores/advert/useAdvert";
 import { AdvertCard } from "./AdvertCard";
 import { AdvertControls } from "./AdvertControls";
+import { SearchControls } from "./SearchControls";
 
 export function AdvertList() {
   const loading = useAdvert((store) => store.loading);
@@ -8,6 +9,7 @@ export function AdvertList() {
 
   return advertList.length > 0 ? (
     <div>
+      <SearchControls />
       <AdvertControls />
       {loading ? (
         <p>Carregando...</p>
