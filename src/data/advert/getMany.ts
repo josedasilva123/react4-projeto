@@ -9,8 +9,8 @@ import { advertApi } from "../../api/advert.api";
 import { IAdvert } from "../../interfaces/advert.interface";
 
 interface Params {
-  count?: string;
-  skip?: string;
+  count?: number | string;
+  skip?: number | string;
   search?: string;
   order?: "asc" | "desc";
 }
