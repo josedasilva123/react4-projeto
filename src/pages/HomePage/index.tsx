@@ -1,14 +1,10 @@
-import { useUser } from "../../stores/user/useUser"
+import { AdvertListLoader } from "../../components/advert/loaders/AdvertListLoader";
+import { AdvertList } from "../../components/advert/structures/lists/AdvertList";
 
-export function HomePage(){
-    const user = useUser(store => store.user);
-    
-    console.log(user);
-
-    return(
-        <>
-            <h1>Home page</h1>
-            {user ? <p>{user.name}</p> : null}
-        </>
-    )
+export function HomePage() {
+  return (
+    <AdvertListLoader>
+      <AdvertList />
+    </AdvertListLoader>
+  );
 }
