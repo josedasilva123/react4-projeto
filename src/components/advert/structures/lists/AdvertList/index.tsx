@@ -1,6 +1,7 @@
 import { useAdvert } from "../../../../../stores/advert/useAdvert";
 import { AdvertCard } from "./AdvertCard";
 import { AdvertControls } from "./AdvertControls";
+import { AdvertPagination } from "./AdvertPagination";
 import { SearchControls } from "./SearchControls";
 
 export function AdvertList() {
@@ -20,6 +21,7 @@ export function AdvertList() {
               <AdvertCard key={advert.id} advert={advert} />
             ))}
           </ul>
+          <AdvertPagination />
         </div>
       )}
     </div>
