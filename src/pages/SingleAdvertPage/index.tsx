@@ -4,7 +4,7 @@ import { IAdvert } from "../../interfaces/advert.interface";
 import { requestAction } from "../../utils/requestAction";
 import { advertRequest } from "../../data/advert/_index";
 import { SingleAdvertContentSection } from "../../components/advert/structures/sections/SingleAdvertContentSection";
-import { SingleAdvertAside } from "../../components/advert/structures/sections/SingleAvertAside";
+import { SingleAdvertAside } from "../../components/advert/structures/sections/SingleAdvertAside";
 
 export function SingleAdvertPage() {
   const { id } = useParams();
