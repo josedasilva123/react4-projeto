@@ -3,7 +3,7 @@ import { requestAction } from "../../utils/requestAction";
 import { advertRequest } from "../../data/advert/_index";
 import { Store } from "./@types";
 
-export const PAGE_COUNT = 2;
+export const PAGE_COUNT = 5;
 
 export const useAdvert = create<Store>((set, get) => ({
   loading: false,

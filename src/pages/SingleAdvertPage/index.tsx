@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { IAdvert } from "../../interfaces/advert.interface";
 import { requestAction } from "../../utils/requestAction";
 import { advertRequest } from "../../data/advert/_index";
+import { SingleAdvertContentSection } from "../../components/advert/structures/sections/SingleAdvertContentSection";
 
 export function SingleAdvertPage() {
   const { id } = useParams();
@@ -20,11 +21,9 @@ export function SingleAdvertPage() {
     });
   }, [id]);
 
-  console.log(advert);
-
-  return (
-    <>
-      <h1>Anúncio (interna)</h1>
-    </>
+  return loading ? (
+    <p>Carregando...</p>
+  ) : (
+    <>{advert ? <SingleAdvertContentSection advert={advert} /> : null}</>
   );
 }
