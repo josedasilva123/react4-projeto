@@ -6,11 +6,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "../../../../../stores/user/useUser";
+import { useToast } from "../../../../../hooks/useToast";
 
 export function LoginForm() {
   const [loading, setLoading] = useState(false);
 
   const login = useUser(store => store.login);
+
+  const { toast } = useToast();
 
   const {
     register,
@@ -21,7 +24,9 @@ export function LoginForm() {
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
-    login(formData, setLoading);
+    login(formData, setLoading, () => {
+      toast.success("Login efetuado com sucesso!");
+    });
   }
 
   return (

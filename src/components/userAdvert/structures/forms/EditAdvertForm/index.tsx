@@ -6,8 +6,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
+import { useToast } from "../../../../../hooks/useToast";
 
-interface Props{
+interface Props {
   callback?: () => void;
 }
 
@@ -16,6 +17,8 @@ export function EditAdvertForm({ callback }: Props) {
 
   const editingAdvert = useUserAdvert((store) => store.editingAdvert);
   const updateAdvert = useUserAdvert((store) => store.updateAdvert);
+
+  const { toast } = useToast();
 
   const {
     register,
@@ -37,7 +40,10 @@ export function EditAdvertForm({ callback }: Props) {
       ...formData,
       price: Number(formData.price),
     };
-    updateAdvert(data, editingAdvert!.id, setLoading, callback);
+    updateAdvert(data, editingAdvert!.id, setLoading, () => {
+      toast.success("Anúncio atualizado com sucesso!");
+      if (callback) callback();
+    });
   };
 
   return (

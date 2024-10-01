@@ -6,11 +6,17 @@ import { Button } from "../../../../shared/fragments/buttons/Button";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "../../../../../stores/user/useUser";
+import { useToast } from "../../../../../hooks/useToast";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
   const [loading, setLoading] = useState(false);
 
   const registerUser = useUser((store) => store.register);
+
+  const { toast } = useToast();
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,7 +27,10 @@ export function RegisterForm() {
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
-    registerUser(formData, setLoading);
+    registerUser(formData, setLoading, ()  => {
+      toast.success("Usuário cadastrado com sucesso.");
+      navigate("/");
+    });
   };
 
   return (

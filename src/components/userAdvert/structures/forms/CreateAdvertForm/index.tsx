@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
+import { useToast } from "../../../../../hooks/useToast";
 
 interface Props{
   callback?: () => void;
@@ -15,6 +16,8 @@ export function CreateAdvertForm({ callback }: Props) {
   const [loading, setLoading] = useState(false);
 
   const createAdvert = useUserAdvert((store) => store.createAdvert);
+
+  const { toast } = useToast();
 
   const {
     register,
@@ -29,7 +32,10 @@ export function CreateAdvertForm({ callback }: Props) {
       ...formData,
       price: Number(formData.price),
     };
-    createAdvert(data, setLoading, callback);
+    createAdvert(data, setLoading,  () => {
+      toast.success("Anúncio criado com sucesso!");
+      if(callback) callback();
+    });
   };
 
   return (

@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, TFormValues } from "./schema";
 import { useUser } from "../../../../../stores/user/useUser";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../../../../hooks/useToast";
 
 export function UserPasswordForm() {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,8 @@ export function UserPasswordForm() {
   const logout = useUser((store) => store.logout);
 
   const navigate = useNavigate();
+
+  const { toast } = useToast();
 
   const {
     register,
@@ -25,6 +28,7 @@ export function UserPasswordForm() {
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
     updatePassword(formData, setLoading, () => {
+      toast.success("Senha alterada com sucesso!");
       logout();
       navigate("/login");
     });
