@@ -6,3 +6,5 @@ export interface IUser {
   createdAt: Date;
   updatedAt?: Date;
 }
+
+export type TPublicUser = Pick<IUser, "id" | "name" | "whatsapp">;
