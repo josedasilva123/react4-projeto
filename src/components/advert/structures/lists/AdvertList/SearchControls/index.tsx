@@ -1,5 +1,6 @@
 import { useAdvert } from "../../../../../../stores/advert/useAdvert";
 import { Button } from "../../../../../shared/fragments/buttons/Button";
+import { Text } from "../../../../../shared/fragments/typography/Text";
 
 export function SearchControls() {
   const search = useAdvert((store) => store.search);
@@ -9,9 +10,9 @@ export function SearchControls() {
     <div>
       {search ? (
         <div>
-          <p>
+          <Text tag="p">
             Resultados de busca para: <strong>{search}</strong>
-          </p>
+          </Text>
           <Button onClick={() => setSearch("")}>Limpar a busca</Button>
         </div>
       ) : null}

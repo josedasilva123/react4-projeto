@@ -5,6 +5,7 @@ import { requestAction } from "../../utils/requestAction";
 import { advertRequest } from "../../data/advert/_index";
 import { SingleAdvertContentSection } from "../../components/advert/structures/sections/SingleAdvertContentSection";
 import { SingleAdvertAside } from "../../components/advert/structures/sections/SingleAdvertAside";
+import { Text } from "../../components/shared/fragments/typography/Text";
 
 export function SingleAdvertPage() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ export function SingleAdvertPage() {
   }, [id]);
 
   return loading ? (
-    <p>Carregando...</p>
+    <Text tag="p">Carregando...</Text>
   ) : (
     <>
       {advert ? (

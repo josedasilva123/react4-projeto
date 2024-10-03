@@ -1,5 +1,6 @@
 import { ForwardedRef, forwardRef, SelectHTMLAttributes } from "react";
 import { FieldError } from "react-hook-form";
+import { Text } from "../../typography/Text";
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   children: React.ReactNode;
@@ -18,7 +19,11 @@ export const Select = forwardRef(
         <select ref={ref} {...rest}>
           {children}
         </select>
-        {error ? <p aria-label="error">{error.message}</p> : null}
+        {error ? (
+          <Text tag="p" aria-label="error">
+            {error.message}
+          </Text>
+        ) : null}
       </div>
     );
   }

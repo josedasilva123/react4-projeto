@@ -1,5 +1,6 @@
 import { ForwardedRef, forwardRef, InputHTMLAttributes, useState } from "react";
 import { FieldError } from "react-hook-form";
+import { Text } from "../../typography/Text";
 
 interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
   label?: string;
@@ -19,7 +20,7 @@ export const InputPassword = forwardRef(
             {isVisible ? "Ocultar" : "Exibir"}
           </button>
         </div>
-        {error ? <p aria-label="error">{error.message}</p> : null}
+        {error ? <Text tag="p" aria-label="error">{error.message}</Text> : null}
       </div>
     );
   }

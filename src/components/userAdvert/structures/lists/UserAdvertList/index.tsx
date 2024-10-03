@@ -1,4 +1,5 @@
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
+import { Text } from "../../../../shared/fragments/typography/Text";
 import { UserAdvertCard } from "./UserAdvertCard";
 
 export function UserAdvertList() {
@@ -11,6 +12,6 @@ export function UserAdvertList() {
       ))}
     </ul>
   ) : (
-    <p>Cadastre o seu primeiro anúncio.</p>
+    <Text tag="p">Cadastre o seu primeiro anúncio.</Text>
   );
 }

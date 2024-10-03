@@ -1,3 +1,5 @@
+import { Text } from "../../components/shared/fragments/typography/Text";
+import { Title } from "../../components/shared/fragments/typography/Title";
 import { UserPasswordForm } from "../../components/user/structures/forms/UserPasswordForm";
 import { useUser } from "../../stores/user/useUser";
 
@@ -6,9 +8,9 @@ export function ProfilePage(){
 
     return(
         <>
-            <p>Boas vindas</p>
-            <h2>{user?.name}</h2>
-            <p>{user?.email}</p>
+            <Text tag="p">Boas vindas</Text>
+            <Title tag="h2">{user?.name}</Title>
+            <Text tag="p">{user?.email}</Text>
 
             <UserPasswordForm />
         </>

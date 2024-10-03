@@ -1,7 +1,9 @@
+import { Title } from "../../components/shared/fragments/typography/Title";
+
 export function NotFoundPage(){
     return(
         <>
-            <h1>Não encontrado - 404</h1>
+            <Title tag="h1">Não encontrado - 404</Title>
         </>
     )
 }

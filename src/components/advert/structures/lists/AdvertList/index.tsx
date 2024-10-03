@@ -1,4 +1,5 @@
 import { useAdvert } from "../../../../../stores/advert/useAdvert";
+import { Text } from "../../../../shared/fragments/typography/Text";
 import { AdvertCard } from "./AdvertCard";
 import { AdvertControls } from "./AdvertControls";
 import { AdvertPagination } from "./AdvertPagination";
@@ -13,7 +14,7 @@ export function AdvertList() {
       <SearchControls />
       <AdvertControls />
       {loading ? (
-        <p>Carregando...</p>
+        <Text tag="p">Carregando...</Text>
       ) : (
         <div>
           <ul>
@@ -26,6 +27,6 @@ export function AdvertList() {
       )}
     </div>
   ) : (
-    <p>Nenhum anúncio encontrado.</p>
+    <Text tag="p">Nenhum anúncio encontrado.</Text>
   );
 }

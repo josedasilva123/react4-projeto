@@ -1,4 +1,6 @@
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
+import { Text } from "../../../../shared/fragments/typography/Text";
+import { Title } from "../../../../shared/fragments/typography/Title";
 import { Modal } from "../../../../shared/structures/Modal";
 import { EditAdvertForm } from "../../forms/EditAdvertForm";
 
@@ -12,8 +14,8 @@ export function EditAdvertModal() {
 
   return editingAdvert ? (
     <Modal onClose={onClose}>
-      <h2>Editar anúncio</h2>
-      <p>Preencha os campos abaixo para editar um anúncio</p>
+      <Title tag="h2">Editar anúncio</Title>
+      <Text tag="p">Preencha os campos abaixo para editar um anúncio</Text>
       <EditAdvertForm callback={onClose} />
     </Modal>
   ) : null;

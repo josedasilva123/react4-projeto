@@ -4,6 +4,8 @@ import { IAdvert } from "../../../../../interfaces/advert.interface";
 import { requestAction } from "../../../../../utils/requestAction";
 import { userRequest } from "../../../../../data/user/_index";
 import { ButtonAnchor } from "../../../../shared/fragments/buttons/ButtonAnchor";
+import { Text } from "../../../../shared/fragments/typography/Text";
+import { Title } from "../../../../shared/fragments/typography/Title";
 
 interface Props {
   advert: IAdvert;
@@ -31,22 +33,22 @@ export function SingleAdvertAside({ advert }: Props) {
   const whatsappLink = `https://wa.me/${publicUser?.whatsapp}?text=${message}`;
 
   return loading ? (
-    <p>Carregando...</p>
+    <Text tag="p">Carregando...</Text>
   ) : (
     <aside>
       <div>
-        <h2>Entre em contato</h2>
-        <p>Clique aqui e fale agora com o anunciante</p>
+        <Title tag="h2">Entre em contato</Title>
+        <Text tag="p">Clique aqui e fale agora com o anunciante</Text>
         <ButtonAnchor href={whatsappLink} target="_blank">
           Fale agora via Whatsapp
         </ButtonAnchor>
       </div>
 
       <div>
-        <h2>Sobre o anunciante</h2>
-        <p>
+        <Title tag="h2">Sobre o anunciante</Title>
+        <Text tag="p">
           <strong>Nome:</strong> {publicUser?.name}
-        </p>
+        </Text>
       </div>
     </aside>
   );

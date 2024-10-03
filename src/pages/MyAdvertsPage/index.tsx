@@ -1,3 +1,5 @@
+import { Text } from "../../components/shared/fragments/typography/Text";
+import { Title } from "../../components/shared/fragments/typography/Title";
 import { UserAdvertListLoader } from "../../components/userAdvert/loaders/UserAdvertListLoader";
 import { UserAdvertList } from "../../components/userAdvert/structures/lists/UserAdvertList";
 import { CreateAdvertModal } from "../../components/userAdvert/structures/modals/CreateAdvertModal";
@@ -12,10 +14,12 @@ export function MyAdvertsPage() {
     <UserAdvertListLoader>
       <section>
         <div>
-          <h1>Meus anúncios</h1>
+          <Title tag="h1">Meus anúncios</Title>
           <CreateAdvertModal />
         </div>
-        <div>{loading ? <p>Carregando...</p> : <UserAdvertList />}</div>
+        <div>
+          {loading ? <Text tag="p">Carregando...</Text> : <UserAdvertList />}
+        </div>
       </section>
       <EditAdvertModal />
       <RemoveAdvertModal />
