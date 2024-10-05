@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IAdvert } from "../../../../../../interfaces/advert.interface";
 import { Text } from "../../../../../shared/fragments/typography/Text";
-import { Title } from "../../../../../shared/fragments/typography/Title";
+import { Price } from "../../../../../shared/fragments/typography/Price";
 
 interface Props {
   advert: IAdvert;
@@ -16,11 +16,13 @@ export function AdvertCard({ advert }: Props) {
         ) : null}
 
         <div>
-          <Title tag="h2">{advert.title}</Title>
-          <Text tag="p">{advert.excerpt}</Text>
+          <Text tag="h2">{advert.title}</Text>
+          <Text className="small black50" tag="p">
+            {advert.excerpt}
+          </Text>
         </div>
 
-        <Text tag="p">{advert.price}</Text>
+        <Price tag="p">{advert.price}</Price>
       </Link>
     </li>
   );

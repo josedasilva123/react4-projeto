@@ -14,7 +14,7 @@ export function MyAdvertsPage() {
     <UserAdvertListLoader>
       <section>
         <div>
-          <Title tag="h1">Meus anúncios</Title>
+          <Title className="one" tag="h1">Meus anúncios</Title>
           <CreateAdvertModal />
         </div>
         <div>
