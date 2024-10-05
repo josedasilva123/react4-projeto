@@ -12,6 +12,6 @@ export function UserAdvertList() {
       ))}
     </ul>
   ) : (
-    <Text tag="p">Cadastre o seu primeiro anúncio.</Text>
+    <Text className="text" tag="p">Cadastre o seu primeiro anúncio.</Text>
   );
 }

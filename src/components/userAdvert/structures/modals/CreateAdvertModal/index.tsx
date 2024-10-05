@@ -17,8 +17,8 @@ export function CreateAdvertModal() {
       <Button onClick={() => setIsVisible(true)}>Adicionar anúncio</Button>
       {isVisible ? (
         <Modal onClose={onClose}>
-          <Title tag="h2">Criar anúncio</Title>
-          <Text tag="p">Preencha os campos abaixo para adicionar um anúncio</Text>
+          <Title className="title two" tag="h2">Criar anúncio</Title>
+          <Text className="text small" tag="p">Preencha os campos abaixo para adicionar um anúncio</Text>
           <CreateAdvertForm callback={onClose} />
         </Modal>
       ) : null}

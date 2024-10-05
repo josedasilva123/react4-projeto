@@ -14,8 +14,8 @@ export function EditAdvertModal() {
 
   return editingAdvert ? (
     <Modal onClose={onClose}>
-      <Title tag="h2">Editar anúncio</Title>
-      <Text tag="p">Preencha os campos abaixo para editar um anúncio</Text>
+      <Title className="title two" tag="h2">Editar anúncio</Title>
+      <Text className="text small" tag="p">Preencha os campos abaixo para editar um anúncio</Text>
       <EditAdvertForm callback={onClose} />
     </Modal>
   ) : null;

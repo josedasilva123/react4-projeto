@@ -22,8 +22,8 @@ export function ConfirmModal({
 }: Props) {
   return (
     <Modal onClose={onClose}>
-      {title ? <Title tag="h2">{title}</Title> : null}
-      {text ? <Text tag="p">{text}</Text> : null}
+      {title ? <Title className="title three" tag="h2">{title}</Title> : null}
+      {text ? <Text className="text small" tag="p">{text}</Text> : null}
       <div>
         <Button onClick={onConfirm} disabled={loading}>
           {loading ? "..." : "Sim"}

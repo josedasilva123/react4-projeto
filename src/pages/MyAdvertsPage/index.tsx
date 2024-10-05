@@ -14,11 +14,11 @@ export function MyAdvertsPage() {
     <UserAdvertListLoader>
       <section>
         <div>
-          <Title className="one" tag="h1">Meus anúncios</Title>
+          <Title className="title one" tag="h1">Meus anúncios</Title>
           <CreateAdvertModal />
         </div>
         <div>
-          {loading ? <Text tag="p">Carregando...</Text> : <UserAdvertList />}
+          {loading ? <Text className="text" tag="p">Carregando...</Text> : <UserAdvertList />}
         </div>
       </section>
       <EditAdvertModal />
