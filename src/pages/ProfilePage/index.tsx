@@ -3,16 +3,25 @@ import { Title } from "../../components/shared/fragments/typography/Title";
 import { UserPasswordForm } from "../../components/user/structures/forms/UserPasswordForm";
 import { useUser } from "../../stores/user/useUser";
 
-export function ProfilePage(){
-    const user = useUser(store => store.user);
+export function ProfilePage() {
+  const user = useUser((store) => store.user);
 
-    return(
-        <>
-            <Text tag="p">Boas vindas</Text>
-            <Title tag="h2">{user?.name}</Title>
-            <Text tag="p">{user?.email}</Text>
+  return (
+    <>
+      <Text className="text" tag="p">
+        Boas vindas
+      </Text>
+      <Title className="title one" tag="h2">
+        {user?.name}
+      </Title>
+      <Text className="text" tag="p">
+        {user?.email}
+      </Text>
 
-            <UserPasswordForm />
-        </>
-    )
+      <Text className="text" tag="p">
+        Você pode alterar sua senha
+      </Text>
+      <UserPasswordForm />
+    </>
+  );
 }

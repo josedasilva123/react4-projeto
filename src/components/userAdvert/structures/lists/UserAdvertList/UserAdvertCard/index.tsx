@@ -3,7 +3,6 @@ import { useUserAdvert } from "../../../../../../stores/userAdvert/useUserAdvert
 import { Button } from "../../../../../shared/fragments/buttons/Button";
 import { Price } from "../../../../../shared/fragments/typography/Price";
 import { Text } from "../../../../../shared/fragments/typography/Text";
-import { Title } from "../../../../../shared/fragments/typography/Title";
 
 interface Props {
   advert: IAdvert;
