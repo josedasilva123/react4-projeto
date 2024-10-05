@@ -14,7 +14,9 @@ export function AdvertList() {
       <SearchControls />
       <AdvertControls />
       {loading ? (
-        <Text tag="p">Carregando...</Text>
+        <Text className="text" tag="p">
+          Carregando...
+        </Text>
       ) : (
         <div>
           <ul>
@@ -27,6 +29,6 @@ export function AdvertList() {
       )}
     </div>
   ) : (
-    <Text tag="p">Nenhum anúncio encontrado.</Text>
+    <Text className="text" tag="p">Nenhum anúncio encontrado.</Text>
   );
 }

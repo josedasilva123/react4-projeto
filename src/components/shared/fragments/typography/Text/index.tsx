@@ -1,12 +1,12 @@
 import { HTMLAttributes } from "react";
 
-type TSize = "small" | "";
+type TSize = " small" | "";
 
 type TAlign = " center" | "";
 
 type TColor = " black50" | "";
 
-type TClassName = `${TSize}${TAlign}${TColor}`;
+type TClassName = `text${TSize}${TAlign}${TColor}`;
 
 interface Props extends Omit<HTMLAttributes<HTMLElement>, "className"> {
   children: React.ReactNode;
@@ -15,36 +15,34 @@ interface Props extends Omit<HTMLAttributes<HTMLElement>, "className"> {
 }
 
 export function Text({ children, tag, className, ...rest }: Props) {
-  const elementClass = `text ${className}`;
-
   return (
     <>
       {tag === "h2" ? (
-        <h2 className={elementClass} {...rest}>
+        <h2 className={className} {...rest}>
           {children}
         </h2>
       ) : null}
 
       {tag === "h3" ? (
-        <h3 className={elementClass} {...rest}>
+        <h3 className={className} {...rest}>
           {children}
         </h3>
       ) : null}
 
       {tag === "h4" ? (
-        <h4 className={elementClass} {...rest}>
+        <h4 className={className} {...rest}>
           {children}
         </h4>
       ) : null}
 
       {tag === "p" ? (
-        <p className={elementClass} {...rest}>
+        <p className={className} {...rest}>
           {children}
         </p>
       ) : null}
 
       {tag === "span" ? (
-        <span className={elementClass} {...rest}>
+        <span className={className} {...rest}>
           {children}
         </span>
       ) : null}

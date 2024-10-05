@@ -10,7 +10,7 @@ export function SearchControls() {
     <div>
       {search ? (
         <div>
-          <Text tag="p">
+          <Text className="text" tag="p">
             Resultados de busca para: <strong>{search}</strong>
           </Text>
           <Button onClick={() => setSearch("")}>Limpar a busca</Button>

@@ -16,8 +16,8 @@ export function AdvertCard({ advert }: Props) {
         ) : null}
 
         <div>
-          <Text tag="h2">{advert.title}</Text>
-          <Text className="small black50" tag="p">
+          <Text className="text" tag="h2">{advert.title}</Text>
+          <Text className="text small black50" tag="p">
             {advert.excerpt}
           </Text>
         </div>
