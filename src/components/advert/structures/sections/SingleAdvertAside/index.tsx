@@ -33,20 +33,26 @@ export function SingleAdvertAside({ advert }: Props) {
   const whatsappLink = `https://wa.me/${publicUser?.whatsapp}?text=${message}`;
 
   return loading ? (
-    <Text tag="p">Carregando...</Text>
+    <Text className="text" tag="p">Carregando...</Text>
   ) : (
     <aside>
       <div>
-        <Title tag="h2">Entre em contato</Title>
-        <Text tag="p">Clique aqui e fale agora com o anunciante</Text>
+        <Title className="title three" tag="h2">
+          Entre em contato
+        </Title>
+        <Text className="text small" tag="p">
+          Clique aqui e fale agora com o anunciante
+        </Text>
         <ButtonAnchor href={whatsappLink} target="_blank">
           Fale agora via Whatsapp
         </ButtonAnchor>
       </div>
 
       <div>
-        <Title tag="h2">Sobre o anunciante</Title>
-        <Text tag="p">
+        <Title className="title three" tag="h2">
+          Sobre o anunciante
+        </Title>
+        <Text className="text small" tag="p">
           <strong>Nome:</strong> {publicUser?.name}
         </Text>
       </div>

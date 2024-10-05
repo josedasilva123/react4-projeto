@@ -24,7 +24,7 @@ export function SingleAdvertPage() {
   }, [id]);
 
   return loading ? (
-    <Text tag="p">Carregando...</Text>
+    <Text className="text" tag="p">Carregando...</Text>
   ) : (
     <>
       {advert ? (
