@@ -7,8 +7,9 @@ interface Props {
     | "delete"
     | "settings"
     | "logout"
-    | "close";
-  color: "blue" | "black50";
+    | "close" 
+    | "add";
+  color?: "blue" | "black50";
 }
 
 export function Icon({ icon, color }: Props) {

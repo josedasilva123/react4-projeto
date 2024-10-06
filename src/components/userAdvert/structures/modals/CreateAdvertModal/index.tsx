@@ -4,6 +4,7 @@ import { Modal } from "../../../../shared/structures/Modal";
 import { CreateAdvertForm } from "../../forms/CreateAdvertForm";
 import { Text } from "../../../../shared/fragments/typography/Text";
 import { Title } from "../../../../shared/fragments/typography/Title";
+import { Icon } from "../../../../shared/fragments/icons/Icon";
 
 export function CreateAdvertModal() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +16,7 @@ export function CreateAdvertModal() {
   return (
     <>
       <Button className="button small blue" onClick={() => setIsVisible(true)}>
-        Adicionar anúncio
+        <Icon icon="add" /> Adicionar anúncio
       </Button>
       {isVisible ? (
         <Modal onClose={onClose}>
