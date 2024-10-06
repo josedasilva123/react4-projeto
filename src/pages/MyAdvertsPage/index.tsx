@@ -1,3 +1,4 @@
+import { Container } from "../../components/shared/fragments/containers/Container";
 import { Text } from "../../components/shared/fragments/typography/Text";
 import { Title } from "../../components/shared/fragments/typography/Title";
 import { UserAdvertListLoader } from "../../components/userAdvert/loaders/UserAdvertListLoader";
@@ -13,13 +14,23 @@ export function MyAdvertsPage() {
   return (
     <UserAdvertListLoader>
       <section>
-        <div>
-          <Title className="title one" tag="h1">Meus anúncios</Title>
-          <CreateAdvertModal />
-        </div>
-        <div>
-          {loading ? <Text className="text" tag="p">Carregando...</Text> : <UserAdvertList />}
-        </div>
+        <Container>
+          <div>
+            <Title className="title one" tag="h1">
+              Meus anúncios
+            </Title>
+            <CreateAdvertModal />
+          </div>
+          <div>
+            {loading ? (
+              <Text className="text" tag="p">
+                Carregando...
+              </Text>
+            ) : (
+              <UserAdvertList />
+            )}
+          </div>
+        </Container>
       </section>
       <EditAdvertModal />
       <RemoveAdvertModal />

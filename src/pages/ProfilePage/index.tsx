@@ -1,3 +1,4 @@
+import { Container } from "../../components/shared/fragments/containers/Container";
 import { Text } from "../../components/shared/fragments/typography/Text";
 import { Title } from "../../components/shared/fragments/typography/Title";
 import { UserPasswordForm } from "../../components/user/structures/forms/UserPasswordForm";
@@ -7,7 +8,7 @@ export function ProfilePage() {
   const user = useUser((store) => store.user);
 
   return (
-    <>
+    <Container size="small">
       <Text className="text" tag="p">
         Boas vindas
       </Text>
@@ -22,6 +23,6 @@ export function ProfilePage() {
         Você pode alterar sua senha
       </Text>
       <UserPasswordForm />
-    </>
+    </Container>
   );
 }
