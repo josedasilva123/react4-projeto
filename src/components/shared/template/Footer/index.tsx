@@ -6,7 +6,9 @@ export function Footer() {
     <footer>
       <img src={Logo} alt="Logo LX Anúncios" />
 
-      <Text tag="p">Todos os direitos reservados</Text>
+      <Text className="text small black50" tag="p">
+        Todos os direitos reservados
+      </Text>
     </footer>
   );
 }
