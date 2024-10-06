@@ -7,6 +7,7 @@ import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "../../../../../stores/user/useUser";
 import { useToast } from "../../../../../hooks/useToast";
+import { Form } from "../../../../shared/structures/Form";
 
 export function LoginForm() {
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <Input
         label="Email"
         {...register("email")}
@@ -48,6 +49,6 @@ export function LoginForm() {
       <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Entrando..." : "Entrar"}
       </Button>
-    </form>
+    </Form>
   );
 }

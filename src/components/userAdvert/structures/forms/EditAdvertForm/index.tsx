@@ -7,6 +7,7 @@ import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
 import { useToast } from "../../../../../hooks/useToast";
+import { Form } from "../../../../shared/structures/Form";
 
 interface Props {
   callback?: () => void;
@@ -47,7 +48,7 @@ export function EditAdvertForm({ callback }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <Input
         type="text"
         label="Título*"
@@ -87,9 +88,11 @@ export function EditAdvertForm({ callback }: Props) {
         error={errors.content}
       />
 
-      <Button className="button big blue" type="submit" disabled={loading}>
-        {loading ? "Editando..." : "Editar anúncio"}
-      </Button>
-    </form>
+      <div className="button-box">
+        <Button className="button big blue" type="submit" disabled={loading}>
+          {loading ? "Editando..." : "Editar anúncio"}
+        </Button>
+      </div>
+    </Form>
   );
 }

@@ -7,8 +7,9 @@ import { schema, TFormValues } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserAdvert } from "../../../../../stores/userAdvert/useUserAdvert";
 import { useToast } from "../../../../../hooks/useToast";
+import { Form } from "../../../../shared/structures/Form";
 
-interface Props{
+interface Props {
   callback?: () => void;
 }
 
@@ -32,14 +33,14 @@ export function CreateAdvertForm({ callback }: Props) {
       ...formData,
       price: Number(formData.price),
     };
-    createAdvert(data, setLoading,  () => {
+    createAdvert(data, setLoading, () => {
       toast.success("Anúncio criado com sucesso!");
-      if(callback) callback();
+      if (callback) callback();
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <Input
         type="text"
         label="Título*"
@@ -79,9 +80,11 @@ export function CreateAdvertForm({ callback }: Props) {
         error={errors.content}
       />
 
-      <Button className="button big blue" type="submit" disabled={loading}>
-        {loading ? "Criando..." : "Criar anúncio"}
-      </Button>
-    </form>
+      <div className="button-box">
+        <Button className="button big blue" type="submit" disabled={loading}>
+          {loading ? "Criando..." : "Criar anúncio"}
+        </Button>
+      </div>
+    </Form>
   );
 }

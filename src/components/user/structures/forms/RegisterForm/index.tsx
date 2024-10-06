@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "../../../../../stores/user/useUser";
 import { useToast } from "../../../../../hooks/useToast";
 import { useNavigate } from "react-router-dom";
+import { Form } from "../../../../shared/structures/Form";
 
 export function RegisterForm() {
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ export function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <Input
         type="text"
         label="Nome"
@@ -76,6 +77,6 @@ export function RegisterForm() {
       <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Cadastrando..." : "Cadastrar-se"}
       </Button>
-    </form>
+    </Form>
   );
 }

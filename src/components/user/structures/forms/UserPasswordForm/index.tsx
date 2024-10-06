@@ -7,6 +7,7 @@ import { schema, TFormValues } from "./schema";
 import { useUser } from "../../../../../stores/user/useUser";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../../../../../hooks/useToast";
+import { Form } from "../../../../shared/structures/Form";
 
 export function UserPasswordForm() {
   const [loading, setLoading] = useState(false);
@@ -35,7 +36,7 @@ export function UserPasswordForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <InputPassword
         label="Antiga senha"
         {...register("oldPassword")}
@@ -60,6 +61,6 @@ export function UserPasswordForm() {
       <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Atualizando..." : "Atualizar senha"}
       </Button>
-    </form>
+    </Form>
   );
 }
