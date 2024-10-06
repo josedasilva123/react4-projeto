@@ -78,7 +78,7 @@ export function CreateAdvertForm({ callback }: Props) {
         error={errors.content}
       />
 
-      <Button type="submit" disabled={loading}>
+      <Button className="button big blue" type="submit" disabled={loading}>
         {loading ? "Criando..." : "Criar anúncio"}
       </Button>
     </form>

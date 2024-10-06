@@ -45,7 +45,7 @@ export function LoginForm() {
         error={errors.password}
       />
 
-      <Button type="submit" disabled={loading}>
+      <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Entrando..." : "Entrar"}
       </Button>
     </form>

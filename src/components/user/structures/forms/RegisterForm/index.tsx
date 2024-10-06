@@ -27,7 +27,7 @@ export function RegisterForm() {
   });
 
   const submit: SubmitHandler<TFormValues> = (formData) => {
-    registerUser(formData, setLoading, ()  => {
+    registerUser(formData, setLoading, () => {
       toast.success("Usuário cadastrado com sucesso.");
       navigate("/");
     });
@@ -42,7 +42,7 @@ export function RegisterForm() {
         disabled={loading}
         error={errors.name}
       />
-      
+
       <Input
         type="email"
         label="Email"
@@ -73,7 +73,7 @@ export function RegisterForm() {
         error={errors.whatsapp}
       />
 
-      <Button type="submit" disabled={loading}>
+      <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Cadastrando..." : "Cadastrar-se"}
       </Button>
     </form>

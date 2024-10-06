@@ -23,7 +23,7 @@ export function AdvertPagination() {
 
   return isVisible ? (
     <div>
-      <Button onClick={handleClick} disabled={loading}>
+      <Button className="button small blue" onClick={handleClick} disabled={loading}>
         {loading ? "Carregando..." : "Carregar mais"}
       </Button>
     </div>

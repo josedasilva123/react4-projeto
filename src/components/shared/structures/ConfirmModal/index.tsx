@@ -25,10 +25,10 @@ export function ConfirmModal({
       {title ? <Title className="title three" tag="h2">{title}</Title> : null}
       {text ? <Text className="text small" tag="p">{text}</Text> : null}
       <div>
-        <Button onClick={onConfirm} disabled={loading}>
+        <Button className="button small red" onClick={onConfirm} disabled={loading}>
           {loading ? "..." : "Sim"}
         </Button>
-        <Button onClick={onCancel} disabled={loading}>
+        <Button className="button small blue-outline" onClick={onCancel} disabled={loading}>
           Não
         </Button>
       </div>

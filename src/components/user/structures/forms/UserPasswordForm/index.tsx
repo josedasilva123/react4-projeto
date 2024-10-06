@@ -57,7 +57,7 @@ export function UserPasswordForm() {
         error={errors.confirmNewPassword}
       />
 
-      <Button type="submit" disabled={loading}>
+      <Button className="button big blue full" type="submit" disabled={loading}>
         {loading ? "Atualizando..." : "Atualizar senha"}
       </Button>
     </form>

@@ -11,7 +11,9 @@ export function NotFoundPage() {
       <Text className="text" tag="p">
         Clique no botão a baixo para voltar para página inicial
       </Text>
-      <ButtonLink to={"/"}>Voltar para home</ButtonLink>
+      <ButtonLink className="button small blue-outline" to={"/"}>
+        Voltar para home
+      </ButtonLink>
     </>
   );
 }

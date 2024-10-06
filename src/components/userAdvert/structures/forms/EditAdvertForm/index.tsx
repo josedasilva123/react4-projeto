@@ -86,7 +86,7 @@ export function EditAdvertForm({ callback }: Props) {
         error={errors.content}
       />
 
-      <Button type="submit" disabled={loading}>
+      <Button className="button big blue" type="submit" disabled={loading}>
         {loading ? "Editando..." : "Editar anúncio"}
       </Button>
     </form>

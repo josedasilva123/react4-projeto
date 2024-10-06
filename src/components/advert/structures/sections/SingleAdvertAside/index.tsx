@@ -33,7 +33,9 @@ export function SingleAdvertAside({ advert }: Props) {
   const whatsappLink = `https://wa.me/${publicUser?.whatsapp}?text=${message}`;
 
   return loading ? (
-    <Text className="text" tag="p">Carregando...</Text>
+    <Text className="text" tag="p">
+      Carregando...
+    </Text>
   ) : (
     <aside>
       <div>
@@ -43,7 +45,11 @@ export function SingleAdvertAside({ advert }: Props) {
         <Text className="text small" tag="p">
           Clique aqui e fale agora com o anunciante
         </Text>
-        <ButtonAnchor href={whatsappLink} target="_blank">
+        <ButtonAnchor
+          className="button big green full"
+          href={whatsappLink}
+          target="_blank"
+        >
           Fale agora via Whatsapp
         </ButtonAnchor>
       </div>

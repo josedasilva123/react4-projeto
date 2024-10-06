@@ -15,7 +15,9 @@ export function RegisterPage() {
       <Text className="text small center" tag="p">
         Já tem uma conta?
       </Text>
-      <ButtonLink to={"/login"}>Entrar</ButtonLink>
+      <ButtonLink className="button big blue-outline full" to={"/login"}>
+        Entrar
+      </ButtonLink>
     </>
   );
 }

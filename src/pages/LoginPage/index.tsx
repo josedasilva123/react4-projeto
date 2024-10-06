@@ -13,7 +13,9 @@ export function LoginPage() {
       <Text className="text small center" tag="p">
         ou
       </Text>
-      <ButtonLink to={"/cadastro"}>Cadastre-se</ButtonLink>
+      <ButtonLink className="button big blue-outline full" to={"/cadastro"}>
+        Cadastre-se
+      </ButtonLink>
     </>
   );
 }
