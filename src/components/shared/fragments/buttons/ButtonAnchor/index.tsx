@@ -1,9 +1,16 @@
 import { AnchorHTMLAttributes } from "react";
+import { TButtonClassName } from "../@types";
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface Props
+  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "className"> {
   children: React.ReactNode;
+  className: TButtonClassName;
 }
 
-export function ButtonAnchor({ children, ...rest }: Props) {
-  return <a {...rest}>{children}</a>;
+export function ButtonAnchor({ children, className, ...rest }: Props) {
+  return (
+    <a className={className} {...rest}>
+      {children}
+    </a>
+  );
 }
