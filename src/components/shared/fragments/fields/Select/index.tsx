@@ -14,7 +14,7 @@ export const Select = forwardRef(
     ref: ForwardedRef<HTMLSelectElement>
   ) => {
     return (
-      <div>
+      <div className="field">
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <select ref={ref} {...rest}>
           {children}

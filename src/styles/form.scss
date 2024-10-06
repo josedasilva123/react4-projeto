@@ -1,0 +1,45 @@
+%fieldDefaults {
+  width: 100%;
+
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 400;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-black-20);
+  border-radius: 4px;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-family: var(--font-primary);
+    font-size: 0.8125rem;
+    font-weight: 400;
+  }
+
+  input,
+  select {
+    @extend %fieldDefaults;
+
+    height: 2.5rem;
+    padding: 0 12px;
+  }
+
+  textarea {
+    resize: none;
+    height: 80px;
+    padding: 12px;
+
+    &.big {
+      height: 160px;
+    }
+
+    @extend %fieldDefaults;
+  }
+}

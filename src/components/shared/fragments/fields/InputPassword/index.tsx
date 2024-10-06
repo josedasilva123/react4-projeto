@@ -12,7 +12,7 @@ export const InputPassword = forwardRef(
     const [isVisible, setIsVisible] = useState(false);
 
     return (
-      <div>
+      <div className="field">
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <div>
           <input type={isVisible ? "text" : "password"} ref={ref} {...rest} />

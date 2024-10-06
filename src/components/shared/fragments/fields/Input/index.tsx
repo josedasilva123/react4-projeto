@@ -10,7 +10,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = forwardRef(
   ({ label, error, ...rest }: Props, ref: ForwardedRef<HTMLInputElement>) => {
     return (
-      <div>
+      <div className="field">
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <input ref={ref} {...rest} />
         {error ? <Text tag="p" aria-label="error">{error.message}</Text> : null}

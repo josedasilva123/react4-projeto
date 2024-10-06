@@ -72,6 +72,7 @@ export function CreateAdvertForm({ callback }: Props) {
       />
 
       <TextArea
+        className="big"
         label="Descrição"
         {...register("content")}
         disabled={loading}

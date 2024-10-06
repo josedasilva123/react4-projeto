@@ -13,7 +13,7 @@ export const TextArea = forwardRef(
     ref: ForwardedRef<HTMLTextAreaElement>
   ) => {
     return (
-      <div>
+      <div className="field">
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <textarea ref={ref} {...rest} />
         {error ? (
