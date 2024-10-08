@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px 24px;
+
+  @media (max-width: 500px){
+    flex-direction: column;
+  }
+
+  .userBox {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 1.25rem;
+
+      font-family: var(--font-primary);
+      font-size: 0.875rem;
+      color: var(--color-white);
+
+      background: var(--color-blue);
+    }
+  }
+
+  .buttonBox {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+}
