@@ -4,6 +4,7 @@ import { AdvertCard } from "./AdvertCard";
 import { AdvertControls } from "./AdvertControls";
 import { AdvertPagination } from "./AdvertPagination";
 import { SearchControls } from "./SearchControls";
+import styles from "./style.module.scss";
 
 export function AdvertList() {
   const loading = useAdvert((store) => store.loading);
@@ -19,7 +20,7 @@ export function AdvertList() {
         </Text>
       ) : (
         <div>
-          <ul>
+          <ul className={styles.list}>
             {advertList.map((advert) => (
               <AdvertCard key={advert.id} advert={advert} />
             ))}

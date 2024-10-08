@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PAGE_COUNT, useAdvert } from "../../../../../../stores/advert/useAdvert";
 import { Button } from "../../../../../shared/fragments/buttons/Button";
+import styles from "./style.module.scss";
 
 export function AdvertPagination() {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ export function AdvertPagination() {
   }
 
   return isVisible ? (
-    <div>
+    <div className={styles.box}>
       <Button className="button small blue" onClick={handleClick} disabled={loading}>
         {loading ? "Carregando..." : "Carregar mais"}
       </Button>

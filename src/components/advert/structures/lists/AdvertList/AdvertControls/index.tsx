@@ -1,5 +1,6 @@
 import { useAdvert } from "../../../../../../stores/advert/useAdvert";
 import { Select } from "../../../../../shared/fragments/fields/Select";
+import styles from "./style.module.scss";
 
 export function AdvertControls() {
   const loading = useAdvert((store) => store.loading);
@@ -7,8 +8,7 @@ export function AdvertControls() {
   const setOrder = useAdvert((store) => store.setOrder);
 
   return (
-    <div>
-   
+    <div className={styles.box}>  
       <Select
         value={order}
         onChange={(e) => setOrder(e.target.value as "asc" | "desc")}
