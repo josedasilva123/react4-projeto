@@ -1,0 +1,51 @@
+.card {
+  position: relative;
+  border: 1px solid var(--color-black-20);
+  border-radius: 8px;
+  background: var(--color-white);
+
+  display: flex;
+  align-items: center;
+
+  min-height: 315px;
+
+  overflow: hidden;
+
+  & > img {
+    width: 100%;
+    max-width: 380px;
+    height: 315px;
+    object-fit: cover;
+  }
+
+  .controls{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .content {
+    width: 100%;
+
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    min-height: unset;
+
+    & > img {
+      max-width: unset;
+      height: 200px;
+    }
+  }
+}
