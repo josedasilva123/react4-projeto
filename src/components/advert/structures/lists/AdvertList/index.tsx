@@ -10,26 +10,32 @@ export function AdvertList() {
   const loading = useAdvert((store) => store.loading);
   const advertList = useAdvert((store) => store.advertList);
 
-  return advertList.length > 0 ? (
+  return (
     <div>
       <SearchControls />
-      <AdvertControls />
       {loading ? (
         <Text className="text" tag="p">
           Carregando...
         </Text>
       ) : (
         <div>
-          <ul className={styles.list}>
-            {advertList.map((advert) => (
-              <AdvertCard key={advert.id} advert={advert} />
-            ))}
-          </ul>
-          <AdvertPagination />
+          {advertList.length > 0 ? (
+            <>
+              <AdvertControls />
+              <ul className={styles.list}>
+                {advertList.map((advert) => (
+                  <AdvertCard key={advert.id} advert={advert} />
+                ))}
+              </ul>
+              <AdvertPagination />
+            </>
+          ) : (
+            <Text className="text" tag="p">
+              Nenhum anúncio encontrado.
+            </Text>
+          )}
         </div>
       )}
     </div>
-  ) : (
-    <Text className="text" tag="p">Nenhum anúncio encontrado.</Text>
   );
 }
