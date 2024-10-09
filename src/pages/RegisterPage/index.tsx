@@ -4,21 +4,24 @@ import Logo from "../../assets/LXLogo.svg";
 import { Text } from "../../components/shared/fragments/typography/Text";
 import { ButtonLink } from "../../components/shared/fragments/buttons/ButtonLink";
 import { Container } from "../../components/shared/fragments/containers/Container";
+import { FullHeightSection } from "../../components/shared/structures/FullHeightSection";
 
 export function RegisterPage() {
   return (
-    <Container size="extra-small">
-      <img src={Logo} alt="Logo LX Anúncios" />
-      <Title className="title three center" tag="h1">
-        Crie sua conta
-      </Title>
-      <RegisterForm />
-      <Text className="text small center" tag="p">
-        Já tem uma conta?
-      </Text>
-      <ButtonLink className="button big blue-outline full" to={"/login"}>
-        Entrar
-      </ButtonLink>
-    </Container>
+    <FullHeightSection tag="section" backgroundColor="gray">
+      <Container size="extra-small">
+        <img src={Logo} alt="Logo LX Anúncios" />
+        <Title className="title three center" tag="h1">
+          Crie sua conta
+        </Title>
+        <RegisterForm />
+        <Text className="text small center" tag="p">
+          Já tem uma conta?
+        </Text>
+        <ButtonLink className="button big blue-outline full" to={"/login"}>
+          Entrar
+        </ButtonLink>
+      </Container>
+    </FullHeightSection>
   );
 }
