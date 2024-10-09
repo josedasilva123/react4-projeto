@@ -1,0 +1,16 @@
+.section{
+    background: var(--color-gray);
+    padding: 60px 0;
+    height: calc(100vh - 150px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .box{
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
