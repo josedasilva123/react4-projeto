@@ -1,0 +1,13 @@
+.box{
+    padding: 25px;
+    padding-top: 45px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+
+    form{
+        width: 100%;
+    }
+}

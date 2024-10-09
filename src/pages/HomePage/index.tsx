@@ -1,16 +1,16 @@
 import { AdvertListLoader } from "../../components/advert/loaders/AdvertListLoader";
 import { AdvertList } from "../../components/advert/structures/lists/AdvertList";
 import { Container } from "../../components/shared/fragments/containers/Container";
-import styles from "./style.module.scss";
+import { FullHeightSection } from "../../components/shared/structures/FullHeightSection";
 
 export function HomePage() {
   return (
     <AdvertListLoader>
-      <section className={styles.section}>
+      <FullHeightSection tag="section" backgroundColor="white">
         <Container>
           <AdvertList />
         </Container>
-      </section>
+      </FullHeightSection>
     </AdvertListLoader>
   );
 }

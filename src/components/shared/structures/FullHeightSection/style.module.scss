@@ -1,6 +1,6 @@
 .section{
     padding: 60px 0;
-    height: calc(100vh - 150px);
+    min-height: calc(100vh - 150px);
 
     display: flex;
     align-items: center;
