@@ -1,4 +1,5 @@
 import { IAdvert } from "../../../../../interfaces/advert.interface";
+import { formatDate } from "../../../../../utils/formatDate";
 import { toMoney } from "../../../../../utils/toMoney";
 import { Price } from "../../../../shared/fragments/typography/Price";
 import { Text } from "../../../../shared/fragments/typography/Text";
@@ -19,7 +20,7 @@ export function SingleAdvertContentSection({ advert }: Props) {
           {advert.title}
         </Title>
         <Text className="text small black50" tag="p">
-          {date.toDateString()}
+          Publicado em {formatDate(date)}
         </Text>
       </div>
 
