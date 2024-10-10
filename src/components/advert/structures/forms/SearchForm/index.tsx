@@ -3,7 +3,6 @@ import { Input } from "../../../../shared/fragments/fields/Input";
 import { useAdvert } from "../../../../../stores/advert/useAdvert";
 import { Icon } from "../../../../shared/fragments/icons/Icon";
 import styles from "./style.module.scss";
-import { useSearchParams } from "react-router-dom";
 
 interface FormValues {
   value: string;
@@ -11,10 +10,6 @@ interface FormValues {
 
 export function SearchForm() {
   const setSearch = useAdvert((store) => store.setSearch);
-
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  console.log(Object.fromEntries(searchParams.entries()));
 
   const { register, handleSubmit, reset } = useForm<FormValues>();
 

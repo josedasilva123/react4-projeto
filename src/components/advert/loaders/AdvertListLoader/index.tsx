@@ -1,20 +1,28 @@
 import { useEffect } from "react";
 import { useAdvert } from "../../../../stores/advert/useAdvert";
+import { useSearchParams } from "react-router-dom";
 
-interface Props{
-    children: React.ReactNode;
+interface Props {
+  children: React.ReactNode;
 }
 
-export function AdvertListLoader({ children }: Props){
-    const search = useAdvert(store => store.search);
-    const order = useAdvert(store => store.order);
-    const getManyAdverts = useAdvert(store => store.getManyAdverts);
+export function AdvertListLoader({ children }: Props) {
+  const [searchParams] = useSearchParams();
+  const getManyAdverts = useAdvert((store) => store.getManyAdverts);
 
-    useEffect(() => {
-        getManyAdverts(search, order);
-    }, [getManyAdverts, search, order]);
+  useEffect(() => {
+    const { search, order } = Object.fromEntries(searchParams.entries());
 
-    return(
-        <>{children}</>
-    )
+    const getOrder = () => {
+      if (order === "asc" || order === "desc") {
+        return order;
+      }
+
+      return "desc";
+    };
+
+    getManyAdverts(search ? search : "", getOrder());
+  }, [getManyAdverts, searchParams]);
+
+  return <>{children}</>;
 }
