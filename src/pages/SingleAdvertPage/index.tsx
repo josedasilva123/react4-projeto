@@ -7,6 +7,8 @@ import { SingleAdvertContentSection } from "../../components/advert/structures/s
 import { SingleAdvertAside } from "../../components/advert/structures/sections/SingleAdvertAside";
 import { Text } from "../../components/shared/fragments/typography/Text";
 import { Container } from "../../components/shared/fragments/containers/Container";
+import { FullHeightSection } from "../../components/shared/structures/FullHeightSection";
+import styles from "./style.module.scss";
 
 export function SingleAdvertPage() {
   const { id } = useParams();
@@ -25,21 +27,23 @@ export function SingleAdvertPage() {
   }, [id]);
 
   return (
-    <Container>
-      {loading ? (
-        <Text className="text" tag="p">
-          Carregando...
-        </Text>
-      ) : (
-        <>
-          {advert ? (
-            <>
-              <SingleAdvertContentSection advert={advert} />
-              <SingleAdvertAside advert={advert} />
-            </>
-          ) : null}
-        </>
-      )}
-    </Container>
+    <FullHeightSection tag="div" backgroundColor="white">
+      <Container>
+        {loading ? (
+          <Text className="text" tag="p">
+            Carregando...
+          </Text>
+        ) : (
+          <>
+            {advert ? (
+              <div className={styles.box}>
+                <SingleAdvertContentSection advert={advert} />
+                <SingleAdvertAside advert={advert} />
+              </div>
+            ) : null}
+          </>
+        )}
+      </Container>
+    </FullHeightSection>
   );
 }

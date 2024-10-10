@@ -1,0 +1,13 @@
+.aside{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    & > div{
+        padding: 25px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

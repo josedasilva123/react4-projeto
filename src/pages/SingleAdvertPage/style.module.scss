@@ -1,0 +1,14 @@
+.box{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+
+    section{
+        width: 100%;
+    }
+
+    aside{
+        min-width: clamp(0px, 100%, 310px);
+    }
+}

@@ -6,6 +6,7 @@ import { userRequest } from "../../../../../data/user/_index";
 import { ButtonAnchor } from "../../../../shared/fragments/buttons/ButtonAnchor";
 import { Text } from "../../../../shared/fragments/typography/Text";
 import { Title } from "../../../../shared/fragments/typography/Title";
+import styles from "./style.module.scss";
 
 interface Props {
   advert: IAdvert;
@@ -37,8 +38,8 @@ export function SingleAdvertAside({ advert }: Props) {
       Carregando...
     </Text>
   ) : (
-    <aside>
-      <div>
+    <aside className={styles.aside}>
+      <div className="border-box">
         <Title className="title three" tag="h2">
           Entre em contato
         </Title>
@@ -54,7 +55,7 @@ export function SingleAdvertAside({ advert }: Props) {
         </ButtonAnchor>
       </div>
 
-      <div>
+      <div className="border-box">
         <Title className="title three" tag="h2">
           Sobre o anunciante
         </Title>
