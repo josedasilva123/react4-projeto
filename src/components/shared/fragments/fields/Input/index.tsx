@@ -13,7 +13,11 @@ export const Input = forwardRef(
       <div className="field">
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <input ref={ref} {...rest} />
-        {error ? <Text tag="p" aria-label="error">{error.message}</Text> : null}
+        {error ? (
+          <Text className="text small red" tag="p" aria-label="error">
+            {error.message}
+          </Text>
+        ) : null}
       </div>
     );
   }

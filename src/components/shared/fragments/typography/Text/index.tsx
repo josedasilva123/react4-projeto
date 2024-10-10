@@ -4,7 +4,7 @@ type TSize = " small" | "";
 
 type TAlign = " center" | "";
 
-type TColor = " black50" | "";
+type TColor = " black50" | " red" | "";
 
 type TClassName = `text${TSize}${TAlign}${TColor}`;
 

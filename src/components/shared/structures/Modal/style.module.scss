@@ -19,6 +19,8 @@
     background: var(--color-white);
     border-radius: 8px;
     padding: 40px clamp(25px, 5vw, 40px);
+    overflow: auto;
+    max-height: 90vh;
 
     .close {
       position: absolute;

@@ -34,7 +34,7 @@ export const InputPassword = forwardRef(
           </button>
         </div>
         {error ? (
-          <Text tag="p" aria-label="error">
+          <Text className="text small red" tag="p" aria-label="error">
             {error.message}
           </Text>
         ) : null}

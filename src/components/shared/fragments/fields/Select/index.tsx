@@ -20,7 +20,7 @@ export const Select = forwardRef(
           {children}
         </select>
         {error ? (
-          <Text tag="p" aria-label="error">
+          <Text className="text small red" tag="p" aria-label="error">
             {error.message}
           </Text>
         ) : null}

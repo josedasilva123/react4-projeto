@@ -52,5 +52,9 @@
     color: var(--color-black-50);
   }
 
+  &.red{
+    color: var(--color-red);
+  }
+
   @extend %typographyDefaults;
 }

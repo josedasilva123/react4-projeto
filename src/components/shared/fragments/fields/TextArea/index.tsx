@@ -17,7 +17,7 @@ export const TextArea = forwardRef(
         {label ? <label htmlFor={rest.id}>{label}</label> : null}
         <textarea ref={ref} {...rest} />
         {error ? (
-          <Text tag="p" aria-label="error">
+          <Text className="text small red" tag="p" aria-label="error">
             {error.message}
           </Text>
         ) : null}
