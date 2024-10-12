@@ -1,20 +1,20 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../../../../shared/fragments/fields/Input";
-import { useAdvert } from "../../../../../stores/advert/useAdvert";
 import { Icon } from "../../../../shared/fragments/icons/Icon";
 import styles from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
   value: string;
 }
 
 export function SearchForm() {
-  const setSearch = useAdvert((store) => store.setSearch);
+  const navigate = useNavigate();
 
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const submit: SubmitHandler<FormValues> = (formData) => {
-    setSearch(formData.value);
+    navigate(`/?search=${formData.value}`);
     reset();
   };
 
