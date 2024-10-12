@@ -1,0 +1,10 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .buttonBox{
+        display: flex;
+        gap: 10px;
+    }
+}
