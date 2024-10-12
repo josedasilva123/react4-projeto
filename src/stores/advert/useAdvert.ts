@@ -9,14 +9,6 @@ export const useAdvert = create<Store>((set, get) => ({
   loading: false,
   advertList: [],
   total: 0,
-  order: "desc",
-  setOrder: (value) => {
-    set({ order: value });
-  },
-  search: "",
-  setSearch: (value) => {
-    set({ search: value });
-  },
   skip: 0,
 
   getManyAdverts: async (search, order) => {

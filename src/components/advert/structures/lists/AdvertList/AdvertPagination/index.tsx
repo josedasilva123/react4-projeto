@@ -2,13 +2,12 @@ import { useState } from "react";
 import { PAGE_COUNT, useAdvert } from "../../../../../../stores/advert/useAdvert";
 import { Button } from "../../../../../shared/fragments/buttons/Button";
 import styles from "./style.module.scss";
+import { useSearchParams } from "react-router-dom";
 
 export function AdvertPagination() {
   const [loading, setLoading] = useState(false);
 
-  const search = useAdvert((store) => store.search);
-
-  const order = useAdvert((store) => store.order);
+  const [searchParams] = useSearchParams();
 
   const skip = useAdvert((store) => store.skip);
 
@@ -19,7 +18,17 @@ export function AdvertPagination() {
   const isVisible = total > skip + PAGE_COUNT;
 
   function handleClick() {
-    getNextAdvertPage(search, order, setLoading);
+    const { search, order } = Object.fromEntries(searchParams.entries());
+
+    const getOrder = () => {
+      if (order === "asc" || order === "desc") {
+        return order;
+      }
+
+      return "desc";
+    };
+
+    getNextAdvertPage(search, getOrder(), setLoading);
   }
 
   return isVisible ? (

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../../../assets/LXLogo.svg";
 import { useUser } from "../../../../stores/user/useUser";
 import { UserControls } from "./UserControls";
@@ -9,6 +9,10 @@ import { SearchForm } from "../../../advert/structures/forms/SearchForm";
 
 export function Header() {
   const user = useUser((store) => store.user);
+  const { pathname } = useLocation();
+
+  const showSearchForm =
+    pathname !== "/meus-anuncios" && pathname !== "/meu-perfil";
 
   return (
     <header className={styles.header}>
@@ -18,7 +22,7 @@ export function Header() {
             <Link to="/">
               <img src={Logo} alt="Logo LX Anúncios" />
             </Link>
-            <SearchForm />
+            {showSearchForm ? <SearchForm /> : null}
           </div>
 
           {user ? (
